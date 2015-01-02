@@ -1,0 +1,32 @@
+.data-repeater-timeline {
+  > ul {
+    margin-left: 9.5em;
+    position: relative;
+    > li {
+      position: relative;
+      padding: 0px 10px 2em 10px;
+      border-left: dashed 4px blue;
+      > .time {
+        position: absolute;
+        left: -9.5em;
+        top: 11px;
+      }
+      > .icon {
+        position:  absolute;
+        left: -22px;
+        top: 0;
+        width: 40px;
+        height: 40px;
+        color: white;
+        border-radius: 20px;
+        text-align: center;
+        padding-top: 7px;
+      }
+      > .r-col {
+        position: relative;
+        margin-left: 32px;
+        top: -15px;
+      }
+    }
+  }
+}

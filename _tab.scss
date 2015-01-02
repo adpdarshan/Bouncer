@@ -1,0 +1,48 @@
+@import "../variables";
+
+.nav-tabs {
+  border-bottom: 3px solid $control-primary;
+  margin: 0;
+  > li {
+    // Make the list-items overlay the bottom border
+    margin-bottom: -1px;
+    // Actual tabs (as links)
+    > a {
+      max-width: 15em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis ;
+      font-weight: bold;
+      background: white;
+      margin-right: 2px;
+      border: 0;
+      border-bottom: 1px solid    $control-primary;
+      &:hover {
+        color: white;
+        border-color: $control-primary-light;
+        background-color: $control-primary-light;
+        border-bottom-color: $control-primary ;
+      }
+    }
+
+    // Active state, and its :hover to override normal :hover
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: white;
+        background: $control-primary;
+        border: 0;
+        border-bottom-color: transparent;
+        cursor: default;
+      }
+    }
+  }
+}
+
+.tab-content {
+  background: #E4E4E4;
+  padding: 10px 10px 20px 20px;
+}
+
+

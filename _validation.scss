@@ -1,0 +1,63 @@
+@import "../variables";
+
+div.has-error {
+	border-color: $notification-color-error;
+	outline: 0;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px rgba($notification-color-error, 0.6);
+
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+		display: block;
+		height: 16px;
+		width: 16px;
+		border-radius: 8px;
+		right: 14px;
+		top: 14px;
+		background-color: $notification-color-error;
+	}
+
+	&.ti-control-type-datetime::after,
+	&.ti-control-type-lookup::after,
+	&.ti-control-type-picklist::after {
+		content: '';
+		position: absolute;
+		display: block;
+		height: 16px;
+		width: 16px;
+		border-radius: 8px;
+		right: 53px;
+		top: 14px;
+		z-index: 2;
+		background-color: $notification-color-error;
+	}
+
+	&.ti-control-type-image,
+	&.ti-control-type-attachement {
+		box-shadow: none;
+		border-color: transparent;
+
+		&::after {
+			display: none;
+		}
+
+		.input-file, .image-control-content {
+			border-color: $notification-color-error;
+			outline: 0;
+			box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba($notification-color-error, 0.6);
+		}
+	}
+
+
+}
+
+div.field-notifications {
+	color: $notification-color-error;
+	font-weight: normal;
+	font-size:13px;
+	line-height:20px;
+	margin-top:6px;
+}
+
