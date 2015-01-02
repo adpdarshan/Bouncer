@@ -9,7 +9,7 @@
 
 module.exports = function(context) {
 
-    "use strict";
+     "use strict";
 
     //--------------------------------------------------------------------------
     // Helpers
