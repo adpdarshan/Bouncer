@@ -10,7 +10,7 @@ define(function (require) {
 
   var InlinePanel = Marionette.Layout.extend({
 
-    regions: {childContent: ".popover-content"},
+    regions:  {childContent: ".popover-content"},
     closeOverlayMethod: this.close.bind(this),
     parentId: this.parentId
   });
