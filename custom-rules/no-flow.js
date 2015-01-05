@@ -15,7 +15,7 @@ module.exports = function (context) {
     // Helpers
     //--------------------------------------------------------------------------
 
-    var count = 0;
+    var count = 0 ;
 
     function checkCount(node) {
         if (count !== 1) {
