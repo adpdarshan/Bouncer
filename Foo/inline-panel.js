@@ -2,7 +2,7 @@
 
 define(function (require) {
   "use strict";
-  var $ = require("jquery"),
+  var $ = require("jquery),
       _ = require("underscore"),
       Marionette = require("marionette"),
       backdropTemplate = require("text!./inline-panel-backdrop.html"),
