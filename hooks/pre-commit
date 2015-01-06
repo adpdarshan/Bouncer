@@ -2,6 +2,8 @@
 
 export PATH=/usr/local/bin:$PATH
 
+
+
 echo "Start Precommit Checks..."
 
 function lintit () {
@@ -13,7 +15,7 @@ ESOUTPUT=$(git diff --diff-filter=ACMR --cached --name-only | grep -E '(.js)$')
   echo "Start ESLint Checks..."
   if [[ "$a" != "" ]]; then
     echo $a
-    e=$(eslint -c eslintconfig.json --rulesdir custom-rules/ $a)
+    e=$(eslint -c hooks/eslintconfig.json --rulesdir hooks/custom-rules/ $a)
     echo $e
     if [[ "$e" != "" ]]; then
       echo "ERROR: Check eslint hints."
@@ -21,17 +23,31 @@ ESOUTPUT=$(git diff --diff-filter=ACMR --cached --name-only | grep -E '(.js)$')
     fi
   fi
 
+echo "Done ESLint Checks..."
+
   SCSSOUTPUT=$(git diff --diff-filter=ACMR --cached --name-only | grep -E '(.scss)$')
   s=("${(f)SCSSOUTPUT}")
   echo "Start SCSS-Lint Checks..."
   if [[ "$s" != "" ]]; then
-    sr=$(scss-lint -c scssconfig.yml $s)
+    sr=$(scss-lint -c hooks/scssconfig.yml $s)
     echo $sr
     if [[ "$sr" != "" ]]; then
       echo "ERROR: Check scss errors."
       x=1
     fi
   fi
+
+  echo "Done SCSS-Lint Checks..."
+
+  echo "Start Flow Checks..."
+  fr=$(flow)
+  if [[ "$fr" != "No errors!" ]]; then
+    echo $fr
+    echo "ERROR: Check for Flow Errors"
+    x=1
+  fi
+
+  echo "Done Flow Checks..."
 
   if [[ "$x" != 0 ]]; then
     exit 1
